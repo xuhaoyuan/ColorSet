@@ -8,10 +8,11 @@
 import UIKit
 import Photos
 import XHYCategories
+import ProgressHUD
 
 class DecodeImageViewController: UIViewController {
 
-    private let imageButton = UIButton(title: "点击请选择图片", titleColor: UIColor.gray, font: UIFont.systemFont(ofSize: 24, weight: .regular), bgColor: UIColor.black)
+    private let imageButton = UIButton(title: "点击请选择图片", titleColor: UIColor.gray, font: UIFont.systemFont(ofSize: 24, weight: .regular), bgColor: UIColor.lightGray)
     private let imageView = UIImageView()
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -36,16 +37,16 @@ class DecodeImageViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.colors = result ?? []
                         self.resultLabel.isHidden = !self.colors.isEmpty
-                        if self.colors.isEmpty {
-                            self.setResult(text: "解析失败", isError: true)
-                        }
                         self.tableView.reloadData()
+                        if self.colors.isEmpty {
+                            ProgressHUD.showError("解析图片失败")
+                        }
                     }
                 } catch {
                     DispatchQueue.main.async {
                         self.colors = []
                         self.resultLabel.isHidden = false
-                        self.setResult(text: "解析失败", isError: true)
+                        ProgressHUD.showError("解析图片失败")
                         self.tableView.reloadData()
                     }
                 }
@@ -81,7 +82,7 @@ class DecodeImageViewController: UIViewController {
         navigationItem.title = "解析主题色"
         navigationItem.rightBarButtonItem = leftItem
 
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.white
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = UIColor.clear
         view.addSubview(imageButton)
@@ -260,15 +261,17 @@ extension DecodeImageViewController {
 extension DecodeImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // Delegate Function: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        var image: UIImage?
-        if picker.allowsEditing {
-            image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        } else {
-            image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        }
-        guard let image = image else { return }
-        self.decodeImage = image
+        picker.dismiss(animated: true, completion: { [weak self] in
+            var image: UIImage?
+            if picker.allowsEditing {
+                image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+            } else {
+                image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            }
+            guard let image = image else { return }
+            self?.decodeImage = image
+        })
+
     }
 
     // Delegate Function: UIImagePickerControllerDelegate

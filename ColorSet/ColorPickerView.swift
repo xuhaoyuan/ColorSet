@@ -30,7 +30,7 @@ class ColorPickerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.white
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -51,7 +51,7 @@ class ColorPickerView: UIView {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = UIColor.black
+        collectionView.backgroundColor = UIColor.white
         collectionView.registerCell(UICollectionViewCell.self)
         return collectionView
     }()
@@ -67,6 +67,8 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(indexPath)
         cell.backgroundColor = list[indexPath.row]
+        cell.corner = 6
+        cell.border(color: .gray, width: 1)
         return cell
     }
 

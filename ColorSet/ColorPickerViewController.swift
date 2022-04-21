@@ -25,7 +25,7 @@ class ColorPickerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.white
 
         makeUI()
 
@@ -51,7 +51,7 @@ class ColorPickerViewController: UIViewController {
     }
 
     private func makeUI() {
-        contentView.backgroundColor = UIColor.black
+        contentView.backgroundColor = UIColor.white
         view.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

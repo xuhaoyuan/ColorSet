@@ -74,7 +74,6 @@
 		51DAEE512810FC5A00955644 /* AverageColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageColor.swift; sourceTree = "<group>"; };
 		51DAEE522810FC5A00955644 /* XYZ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYZ.swift; sourceTree = "<group>"; };
 		51DAEE532810FC5A00955644 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
-		51DAEE542810FC5A00955644 /* ColorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorKit.h; sourceTree = "<group>"; };
 		51DAEE552810FC5A00955644 /* Lab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		51DAEE572810FC5A00955644 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		51DAEE582810FC5A00955644 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
@@ -191,7 +190,6 @@
 				51DAEE512810FC5A00955644 /* AverageColor.swift */,
 				51DAEE522810FC5A00955644 /* XYZ.swift */,
 				51DAEE532810FC5A00955644 /* RGB.swift */,
-				51DAEE542810FC5A00955644 /* ColorKit.h */,
 				51DAEE552810FC5A00955644 /* Lab.swift */,
 				51DAEE562810FC5A00955644 /* Extensions */,
 				51DAEE5A2810FC5A00955644 /* Name.swift */,
@@ -539,10 +537,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ColorSet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "颜色板";
+				INFOPLIST_KEY_NSCameraUsageDescription = "提取主题色功能需要使用手机相机权限";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSLocationUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用您的位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "请允许使用您的麦克风进行语音识别";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "提取主题色功能需要使用手机相册权限";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "提取主题色功能需要使用手机相册权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -555,6 +563,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xhy.ColorSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorSet/ColorSet-bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -568,10 +577,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2FA8NW6DVT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ColorSet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "颜色板";
+				INFOPLIST_KEY_NSCameraUsageDescription = "提取主题色功能需要使用手机相机权限";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSLocationUsageDescription = "允许获取您的地理位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用您的位置信息便于获取最新消息";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "请允许使用您的麦克风进行语音识别";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "提取主题色功能需要使用手机相册权限";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "提取主题色功能需要使用手机相册权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -584,6 +604,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xhy.ColorSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ColorSet;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorSet/ColorSet-bridging-Header.h";
 				SWIFT_VERSION = 5.0;

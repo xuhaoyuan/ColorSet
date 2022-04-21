@@ -45,7 +45,8 @@ class ReportDataView: UIView {
                        getStack(label: gLabel, textField: gField),
                        getStack(label: bLabel, textField: bField)],
             axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 8)
-
+        rgbButton.tintColor = UIColor.black
+        hexButton.tintColor = UIColor.black
         addSubview(rgbButton)
         addSubview(hexButton)
         addSubview(topStackView)
@@ -142,12 +143,12 @@ class ReportDataView: UIView {
 
     private static func getLabel(text: String) -> UILabel {
         let font = UIFont.systemFont(ofSize: 18, weight: .heavy)
-        return UILabel(text: text,font: font, color: .white, alignment: .left)
+        return UILabel(text: text,font: font, color: .black, alignment: .left)
     }
 
     private func getField() -> UITextField {
         let field = UITextField()
-        field.textColor = UIColor.white
+        field.textColor = UIColor.black
         field.keyboardType = .asciiCapableNumberPad
         field.returnKeyType = .done
         field.delegate = self
@@ -200,7 +201,7 @@ extension ReportDataView: UITextFieldDelegate {
 
 private class FinishInputView: UIView {
 
-    private let confirmBtn = UIButton(title: "确认", titleColor: UIColor.white, font: .systemFont(ofSize: 18, weight: .bold), cornerRadius: 32/2)
+    private let confirmBtn = UIButton(title: "确认", titleColor: UIColor.white, font: .systemFont(ofSize: 18, weight: .bold), edge: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8), borderWidth: 2, borderColor: UIColor.white, cornerRadius: 32/2)
 
     init(callBack: @escaping VoidHandler) {
         let rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 38)
@@ -208,7 +209,7 @@ private class FinishInputView: UIView {
         addSubview(confirmBtn)
         confirmBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-8)
+            make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(32)
         }
         confirmBtn.addTapHandler(callBack)
